@@ -19,6 +19,17 @@
         Nessun Categoria
         @endif
       </p>
+      <p class="card-text">
+        @if ($project->technologies)
+          @foreach ($project->technologies as $technology)
+          <span class="badge rounded-pill text-bg-dark"><a href="#" class="text-white text-decoration-none">{{$technology->name}}</a></span>
+          
+          @endforeach
+        @else
+        Nessun Categoria
+        @endif
+      </p>
+            
       <a href="{{route('admin.projects.index')}}" class="btn btn-primary">Go Back</a>
     </div>
   </div>
@@ -35,6 +46,16 @@
               <p class="card-text">
                 @if ($project->type)
                 Tipologia: <a href="{{route('admin.types.show', $project->type)}}">{{$project->type->name}}</a>
+                @else
+                Nessun Categoria
+                @endif
+              </p>
+              <p class="card-text">
+                @if ($project->technologies)
+                  @foreach ($project->technologies as $technology)
+                  <span class="badge rounded-pill text-bg-dark"><a href="#" class="text-white text-decoration-none">{{$technology->name}}</a></span>
+                  
+                  @endforeach
                 @else
                 Nessun Categoria
                 @endif
